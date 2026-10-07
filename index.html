@@ -1,1 +1,475 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ufuk Küçüktopçu resmi web sayfası, çalışmalar, bağlantılar ve bilgilendirme alanı.">
+  <title>Ufuk Küçüktopçu</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111527'/%3E%3Cpath d='M19 17v17c0 8.4 5.1 13.5 13 13.5S45 42.4 45 34V17h-8v17c0 4.2-1.8 6.4-5 6.4s-5-2.2-5-6.4V17z' fill='%2376d4bd'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080c14;
+      --panel: #101626;
+      --panel-2: #151d30;
+      --text: #f3f6fb;
+      --muted: #aeb8c7;
+      --line: rgba(255, 255, 255, 0.1);
+      --accent: #76d4bd;
+      --accent-2: #b8c7ff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(118, 212, 189, 0.16), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(159, 183, 255, 0.18), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      display: grid;
+      width: min(1180px, calc(100% - 32px));
+      height: 100svh;
+      margin: 0 auto;
+      grid-template-rows: auto 1fr;
+      gap: clamp(12px, 2vh, 22px);
+      padding: clamp(14px, 3vh, 28px) 0;
+    }
+
+    .topbar {
+      display: flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 16px;
+    }
+
+    .identity {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: linear-gradient(145deg, #182034, #0d1320);
+      color: var(--accent);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+      font-weight: 900;
+    }
+
+    .identity-copy { min-width: 0; }
+
+    .identity strong {
+      display: block;
+      overflow: hidden;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .dashboard {
+      display: grid;
+      min-height: 0;
+      grid-template-columns: minmax(250px, 0.34fr) minmax(0, 1fr);
+      gap: clamp(14px, 2vw, 20px);
+    }
+
+    .panel,
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(17, 21, 39, 0.84);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .profile {
+      display: grid;
+      min-height: 0;
+      align-content: space-between;
+      gap: 18px;
+      padding: clamp(18px, 3vw, 26px);
+    }
+
+    .profile-top {
+      display: grid;
+      gap: 16px;
+    }
+
+    .avatar {
+      display: grid;
+      width: clamp(58px, 8vw, 76px);
+      height: clamp(58px, 8vw, 76px);
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #f6f8fc, #dfe6f1);
+      color: #111527;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 950;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin: 0; }
+
+    h1 {
+      font-size: clamp(1.45rem, 3.2vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .profile p {
+      color: var(--muted);
+      font-size: clamp(0.94rem, 1.5vw, 1rem);
+    }
+
+    .github-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(118, 212, 189, 0.16);
+      border-radius: 14px;
+      background: rgba(118, 212, 189, 0.08);
+      padding: 14px;
+    }
+
+    .github-card-label {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .github-card a {
+      overflow-wrap: anywhere;
+      font-size: clamp(0.94rem, 1.5vw, 1rem);
+      font-weight: 800;
+    }
+
+    .menu-panel {
+      display: grid;
+      min-height: 0;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+      padding: clamp(16px, 2.5vw, 24px);
+    }
+
+    .menu-head {
+      display: flex;
+      align-items: end;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .menu-head p {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .menu-grid {
+      display: grid;
+      min-height: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: 12px;
+    }
+
+    .tile {
+      display: grid;
+      min-height: 0;
+      align-content: space-between;
+      gap: 12px;
+      padding: clamp(15px, 2.3vw, 22px);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .tile:hover,
+    .tile:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(118, 212, 189, 0.42);
+      background: rgba(23, 29, 50, 0.98);
+      outline: none;
+    }
+
+    .tile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .icon {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--accent);
+      font-weight: 950;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tile h3 {
+      margin: 0 0 6px;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      line-height: 1.1;
+    }
+
+    .tile p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(0.88rem, 1.3vw, 0.96rem);
+    }
+
+    .tile.soon {
+      border-style: dashed;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    @media (max-width: 840px) {
+      .page {
+        width: min(100% - 24px, 1180px);
+        gap: 10px;
+        padding: 12px 0;
+      }
+
+      .topbar { min-height: 46px; }
+      .subtitle { display: none; }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+      }
+
+      .profile {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        padding: 14px;
+      }
+
+      .profile-top {
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 12px;
+      }
+
+      .profile-copy {
+        display: grid;
+        gap: 4px;
+      }
+
+      .profile p { display: none; }
+
+      .github-card {
+        min-width: 150px;
+        padding: 10px 12px;
+      }
+
+      .github-card-label { font-size: 0.7rem; }
+      .github-card a { font-size: 0.86rem; }
+
+      .menu-panel { padding: 14px; }
+      .menu-head p { display: none; }
+    }
+
+    @media (max-width: 520px) {
+      .mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .dashboard { gap: 10px; }
+
+      .profile {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        font-size: 1.15rem;
+      }
+
+      h1 { font-size: 1.2rem; }
+      .github-card { display: none; }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+
+      .tile {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        padding: 12px;
+      }
+
+      .tile-top { display: contents; }
+      .tag { display: none; }
+
+      .tile h3 {
+        margin-bottom: 3px;
+        font-size: 1rem;
+      }
+
+      .tile p {
+        font-size: 0.82rem;
+        line-height: 1.32;
+      }
+    }
+
+    @media (max-height: 680px) {
+      body { font-size: 14px; }
+      .page { padding: 10px 0; }
+      .profile p,
+      .menu-head p,
+      .tag { display: none; }
+      .profile,
+      .menu-panel,
+      .tile { padding: 12px; }
+      .menu-grid { gap: 9px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" aria-label="Ana menü">
+    <header class="topbar">
+      <a class="identity" href="./" aria-label="Ana menüye dön">
+        <span class="mark">U</span>
+        <span class="identity-copy">
+          <strong>Ufuk Küçüktopçu</strong>
+          <span class="subtitle">Resmi web sayfası ve dijital çalışma alanı</span>
+        </span>
+      </a>
+    </header>
+
+    <section class="dashboard">
+      <aside class="panel profile" aria-label="Profil özeti">
+        <div class="profile-top">
+          <div class="avatar" aria-hidden="true">U</div>
+          <div class="profile-copy">
+            <h1>Resmi Bağlantılar</h1>
+            <p>Çalışmalarımı, projelerimi, GitHub profilimi ve yayımladığım bilgilendirme sayfalarını buradan inceleyebilirsiniz.</p>
+          </div>
+        </div>
+
+        <div class="github-card" aria-label="GitHub bilgisi">
+          <span class="github-card-label">Geliştirici Profili</span>
+          <a href="https://github.com/UKTQT" target="_blank" rel="noreferrer">github.com/UKTQT</a>
+        </div>
+      </aside>
+
+      <section class="panel menu-panel" aria-labelledby="menu-title">
+        <div class="menu-head">
+          <h2 id="menu-title">Hızlı Menü</h2>
+        </div>
+
+        <nav class="menu-grid" aria-label="Site menüsü">
+          <a class="tile" href="calismalarim.html">
+            <span class="tile-top">
+              <span class="icon">01</span>
+              <span class="tag">Portföy</span>
+            </span>
+            <span>
+              <h3>Çalışmalarım</h3>
+              <p>Yayınlanan projeler, denemeler ve seçili çalışmalar.</p>
+            </span>
+          </a>
+
+          <a class="tile" href="gizlilik-politikalari.html">
+            <span class="tile-top">
+              <span class="icon">02</span>
+              <span class="tag">Yasal</span>
+            </span>
+            <span>
+              <h3>Gizlilik Politikaları</h3>
+              <p>Gizlilik, kullanım ve bilgilendirme metinleri.</p>
+            </span>
+          </a>
+
+          <a class="tile" href="https://github.com/UKTQT" target="_blank" rel="noreferrer">
+            <span class="tile-top">
+              <span class="icon">03</span>
+              <span class="tag">Kod</span>
+            </span>
+            <span>
+              <h3>GitHub</h3>
+              <p>GitHub profili, repolar ve teknik çalışmalar.</p>
+            </span>
+          </a>
+
+          <a class="tile soon" href="#">
+            <span class="tile-top">
+              <span class="icon">+</span>
+              <span class="tag">Hazır</span>
+            </span>
+            <span>
+              <h3>Yeni Sayfa</h3>
+              <p>Blog, araçlar, notlar veya yeni içerik alanı.</p>
+            </span>
+          </a>
+        </nav>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
+
+
+
 
