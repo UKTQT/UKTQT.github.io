@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Miini Buddy mobil uygulaması kullanıcı gizlilik sözleşmesi.">
+  <title>Miini Buddy Gizlilik Politikası | Ufuk Küçüktopçu</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080c14;
+      --panel: #101626;
+      --panel-2: #151d30;
+      --text: #f3f6fb;
+      --muted: #aeb8c7;
+      --line: rgba(255, 255, 255, 0.1);
+      --accent: #76d4bd;
+      --accent-2: #b8c7ff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100svh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 0, rgba(118, 212, 189, 0.14), transparent 30%),
+        radial-gradient(circle at 88% 10%, rgba(184, 199, 255, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 16px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .back {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 9px 14px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .page-label {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(16, 22, 38, 0.9);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 5vw, 44px);
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 0;
+      font-size: clamp(2.3rem, 6vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+    }
+
+    .policy-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 22px;
+      border: 1px solid rgba(118, 212, 189, 0.22);
+      border-radius: 16px;
+      background: rgba(118, 212, 189, 0.08);
+      padding: clamp(18px, 3vw, 24px);
+    }
+
+    .project-kicker {
+      display: inline-flex;
+      margin-bottom: 9px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .policy-card h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.1;
+    }
+
+    .policy-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--accent);
+      padding: 11px 17px;
+      color: #081018;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .document {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(16, 22, 38, 0.9);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4vw, 38px);
+    }
+
+    .document-header {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+    }
+
+    .document-header h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .meta span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      max-width: 100%;
+      padding: 6px 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .policy-section {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .policy-section:last-child { border-bottom: 0; }
+
+    .policy-section h3 {
+      margin-bottom: 10px;
+      font-size: clamp(1.12rem, 2vw, 1.35rem);
+      line-height: 1.25;
+    }
+
+    .policy-section p,
+    .policy-section li {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .policy-section p { margin-bottom: 12px; }
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    ul {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    .source-link {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        padding: 16px 12px 44px;
+      }
+
+      .topbar,
+      .policy-card {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .page-label {
+        display: none;
+      }
+
+      .policy-card {
+        display: grid;
+        align-items: start;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero,
+      .document {
+        width: calc(100vw - 24px);
+        max-width: calc(100vw - 24px);
+      }
+
+      .lead,
+      .policy-section p,
+      .policy-section li,
+      .document-header h2 {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .meta span {
+        width: 100%;
+        border-radius: 12px;
+      }
+    }
+    @media (max-width: 720px) {
+      .hero > *,
+      .document > *,
+      .policy-section p,
+      .policy-section li,
+      .lead {
+        width: 100%;
+        max-width: calc(100vw - 72px);
+      }
+    }
+    @media (max-width: 720px) {
+      .lead,
+      .policy-section p,
+      .policy-section li {
+        max-width: 280px;
+      }
+
+      .document-header h2,
+      h1 {
+        max-width: 320px;
+      }
+    }  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="back" href="gizlilik-politikalari.html">Gizlilik Politikaları</a>
+      <div class="page-label">Ufuk Küçüktopçu</div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">Miini Buddy Gizlilik Politikası</h1>
+      <p class="lead">Miini Buddy mobil uygulamasına ait kullanıcı gizlilik sözleşmesi.</p>
+    </section>
+    <article class="document" id="miini-buddy-policy">
+      <header class="document-header">
+        <span class="project-kicker">Miini Buddy</span>
+        <h2>Kullanıcı Gizlilik Sözleşmesi</h2>
+        <div class="meta">
+          <span>Son güncelleme: 14 Eylül 2026</span>
+          <span>Geliştirici: Ufuk Küçüktopçu</span>
+          <span>Konum: Ankara, Türkiye</span>
+        </div>
+      </header>
+
+      <section class="policy-section">
+        <p>Bu Gizlilik Sözleşmesi, Miini Buddy mobil uygulamasını kullandığınızda hangi bilgilerin işlendiğini, bu bilgilerin hangi amaçlarla kullanıldığını ve gizlilik tercihlerinizi nasıl yönetebileceğinizi açıklar. Miini Buddy; çocukların günlük görevlerini takip etmesine, yıldız kazanmasına ve ebeveynlerin bu görevleri yönetmesine yardımcı olan bir aile uygulamasıdır.</p>
+        <p>İletişim: <a class="source-link" href="mailto:ufukkt262699@hotmail.com">ufukkt262699@hotmail.com</a></p>
+      </section>
+
+      <section class="policy-section">
+        <h3>1. Kapsam</h3>
+        <p>Bu metin Miini Buddy'nin Android ve iOS sürümleri için geçerlidir. Uygulama hesap açtırmaz; kullanıcıdan e-posta, telefon numarası, sosyal medya hesabı veya herkese açık profil oluşturmasını istemez. Uygulamanın temel verileri cihaz üzerinde tutulur.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>2. Toplanan Bilgiler</h3>
+        <p>Miini Buddy'yi kullanırken işlenen bilgiler, uygulama içindeki özelliklere bağlıdır:</p>
+        <ul>
+          <li>Çocuk profili: çocuğun adı veya takma adı ve seçilen yaş aralığı.</li>
+          <li>Görev bilgileri: görev adı, görev ikonu, yıldız ödülü, tekrar günleri, tamamlanma tarihleri, oluşturulma/güncellenme tarihleri ve varsa hatırlatma zamanı.</li>
+          <li>Ebeveyn alanı bilgisi: ebeveyn ekranını korumak için belirlenen 4 haneli PIN'in hash'lenmiş hali.</li>
+          <li>Uygulama tercihleri: tanıtım ekranının görülüp görülmediği, dil ve benzeri yerel kullanım tercihleri.</li>
+          <li>Teknik bilgiler: reklam gösterimi, rıza/gizlilik seçenekleri, bağlantı kontrolü ve hata raporlama için gerekli olabilecek cihaz, uygulama sürümü, işletim sistemi, hata kaydı ve bağlantı bilgileri.</li>
+        </ul>
+        <p>Ebeveynlerin görev adlarına adres, okul, sağlık bilgisi, kimlik bilgisi veya benzeri hassas kişisel veriler yazmamasını öneririz.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>3. Bilgileri Nasıl Kullanırız</h3>
+        <p>Toplanan veya cihazda tutulan bilgiler şu amaçlarla kullanılır:</p>
+        <ul>
+          <li>Çocuk profilini göstermek ve uygulama deneyimini kişiselleştirmek.</li>
+          <li>Ebeveyn tarafından eklenen görevleri listelemek, günlere göre göstermek ve tamamlanma durumunu takip etmek.</li>
+          <li>Çocuğun kazandığı yıldızları ve ilerlemesini hesaplamak.</li>
+          <li>Ebeveyn alanını PIN ile korumak ve hatalı denemelerde güvenliği artırmak.</li>
+          <li>Reklamları çocuklara uygun ve kişiselleştirilmemiş şekilde göstermek.</li>
+          <li>Uygulama hatalarını, çökmeleri ve performans sorunlarını anlamak.</li>
+          <li>Yasal yükümlülüklere uymak ve uygulamanın güvenliğini korumak.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section">
+        <h3>4. Yerel Saklama ve Güvenlik</h3>
+        <p>Çocuk profili ve ebeveyn PIN bilgisi cihazın güvenli depolama alanında tutulur. Görevler ve bazı uygulama tercihleri cihazdaki yerel uygulama depolamasında saklanır. Uygulama, yerel veritabanı için Hive kullanır; hassas kullanıcı kutusu AES anahtarıyla korunur ve bu anahtar cihazın güvenli depolama alanında saklanır.</p>
+        <p>Ebeveyn PIN'i açık metin olarak saklanmaz. PIN, tuzlanmış ve PBKDF2-SHA256 yöntemiyle hash'lenmiş biçimde tutulur. Android tarafında yedekleme ve veri çıkarımı kapatılmıştır; ağ iletişimlerinde güvenli bağlantı kullanılır.</p>
+        <p>Hiçbir elektronik saklama veya iletim yöntemi tamamen risksiz değildir. Bu nedenle uygulama içinde gereksiz hassas bilgi paylaşılmamalıdır.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>5. Reklamlar ve Rıza Seçenekleri</h3>
+        <p>Miini Buddy, uygulama içinde Google Mobile Ads/AdMob ile reklam gösterebilir. Reklam yapılandırması çocuklara yönelik kullanım, rıza yaşının altındaki kullanıcılar ve kişiselleştirilmemiş reklam yaklaşımı dikkate alınarak yapılır. Reklam içerik derecelendirmesi çocuklara uygun olacak şekilde sınırlandırılır.</p>
+        <p>Google ve reklam hizmetleri; reklam gösterimi, reklam güvenliği, rıza yönetimi, cihaz bilgileri, reklam tanımlayıcıları, IP adresinden türetilebilen yaklaşık bölge ve benzeri teknik bilgileri kendi gizlilik politikalarına göre işleyebilir. Gerekli bölgelerde Google'ın rıza veya gizlilik seçenekleri formu gösterilebilir.</p>
+        <p>Google gizlilik politikası: <a class="source-link" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">https://policies.google.com/privacy</a></p>
+        <p>Google reklam teknolojileri: <a class="source-link" href="https://policies.google.com/technologies/ads" target="_blank" rel="noreferrer">https://policies.google.com/technologies/ads</a></p>
+      </section>
+
+      <section class="policy-section">
+        <h3>6. Hata Raporlama</h3>
+        <p>Miini Buddy, yalnızca yayın sürümünde ve Sentry yapılandırması etkinse hata raporlama kullanabilir. Bu raporlar uygulama çökmelerini ve teknik hataları anlamak için kullanılır. Uygulama Sentry'ye varsayılan kişisel bilgi göndermeyecek şekilde ayarlanmıştır; buna rağmen hata raporlarında cihaz modeli, işletim sistemi sürümü, uygulama sürümü, hata mesajı, yığın izi ve teknik çalışma bilgileri bulunabilir.</p>
+        <p>Sentry gizlilik politikası: <a class="source-link" href="https://sentry.io/privacy/" target="_blank" rel="noreferrer">https://sentry.io/privacy/</a></p>
+      </section>
+
+      <section class="policy-section">
+        <h3>7. Bilgi Paylaşımı</h3>
+        <p>Miini Buddy kişisel verileri satmaz. Çocuk profili, görev bilgileri ve ebeveyn PIN'i reklam hedefleme amacıyla üçüncü taraflara aktarılmaz. Bilgiler yalnızca uygulamanın çalışması veya yasal yükümlülükler için gerekli olduğunda aşağıdaki taraflarla işlenebilir:</p>
+        <ul>
+          <li>Google Mobile Ads/AdMob ve Google UMP: reklam gösterimi, reklam güvenliği ve rıza/gizlilik seçenekleri için.</li>
+          <li>Sentry: etkinse hata ve çökme raporlarını incelemek için.</li>
+          <li>Apple App Store ve Google Play: uygulamanın dağıtımı, mağaza güvenliği, cihaz/işletim sistemi süreçleri ve mağaza raporları için.</li>
+          <li>Yetkili makamlar: geçerli bir hukuki talep veya yasal zorunluluk bulunması halinde.</li>
+        </ul>
+        <p>Bu hizmetlerin kendi gizlilik politikaları ve veri saklama süreleri geçerlidir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>8. Cihaz İzinleri</h3>
+        <p>Mevcut uygulama akışında Miini Buddy kesin konum, rehber, mikrofon, kamera veya galeri erişimi istemez. Android sürümünde internet izni; reklamlar, rıza/gizlilik seçenekleri, bağlantı kontrolü ve hata raporlama gibi teknik işlemler için kullanılır. iOS tarafında mevcut sürümde kamera, galeri, mikrofon veya konum izni açıklaması bulunmaz.</p>
+        <p>Gelecekte bu izinlerden birini gerektiren yeni bir özellik eklenirse, ilgili izin yalnızca kullanıcı onayıyla istenir ve bu sözleşme güncellenir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>9. Çocukların Gizliliği</h3>
+        <p>Miini Buddy çocukların kullanabileceği bir uygulamadır; ancak çocuk profili, ebeveyn PIN'i ve görev bilgileri ebeveyn veya yasal vasi tarafından oluşturulmalıdır. Uygulama çocuklardan doğrudan pazarlama amacıyla bilgi istemez, herkese açık paylaşım alanı sunmaz ve sosyal mesajlaşma özelliği içermez.</p>
+        <p>Ebeveyn veya yasal vasi, çocuğa ait bilgilerin yanlışlıkla veya izinsiz işlendiğini düşünürse bizimle iletişime geçebilir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>10. Saklama ve Silme</h3>
+        <p>Cihazda tutulan bilgiler uygulama kullanıldığı sürece saklanır. Görevler uygulama içinden silinebilir. Yerel verileri tamamen silmek için cihaz ayarlarından uygulama verileri temizlenebilir veya uygulama kaldırılabilir.</p>
+        <p>Reklam, rıza ve hata raporlama hizmetleri tarafından işlenen teknik kayıtlar, ilgili hizmet sağlayıcıların kendi saklama sürelerine ve gizlilik politikalarına tabidir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>11. Haklarınız ve Tercihleriniz</h3>
+        <p>Geçerli mevzuata göre kişisel verileriniz hakkında bilgi talep etme, hatalı bilgilerin düzeltilmesini isteme, silme talebinde bulunma, işlemeye itiraz etme veya rıza gerektiren işlemler için rızanızı geri çekme haklarınız olabilir.</p>
+        <p>Miini Buddy'deki temel verilerin büyük bölümü cihazda saklandığı için silme ve yönetme işlemleri çoğu durumda cihaz veya uygulama üzerinden yapılır. Reklam rızası ve gizlilik seçenekleri, uygun bölgelerde Google'ın sunduğu gizlilik seçenekleri formu üzerinden yönetilebilir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>12. Yasal Süreçler, Güvenlik ve Devir</h3>
+        <p>Geçerli hukuk, resmi makam talepleri, uygulama güvenliği, dolandırıcılık veya kötüye kullanımın önlenmesi, haklarımızın ve kullanıcıların korunması için gerekli olduğunda ilgili bilgiler korunabilir, incelenebilir veya paylaşılabilir.</p>
+        <p>Uygulamanın sahibi değişirse, birleşme, devralma veya varlık devri gibi durumlarda bu sözleşmede açıklanan bilgiler yürürlükteki veri koruma kurallarına uygun şekilde yeni sorumlu tarafa aktarılabilir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>13. Uluslararası Aktarım</h3>
+        <p>Google, Sentry, Apple veya Google Play gibi hizmet sağlayıcılar bilgileri Türkiye dışındaki ülkelerde işleyebilir. Bu durum, hizmetlerin teknik altyapısından kaynaklanabilir. Böyle bir işlem, ilgili hizmet sağlayıcının gizlilik politikası ve uygulanabilir veri koruma kuralları kapsamında gerçekleşir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>14. Sözleşme Güncellemeleri</h3>
+        <p>Uygulamadaki özellikler, kullanılan hizmetler veya yasal gereklilikler değişirse bu Gizlilik Sözleşmesi güncellenebilir. Güncel metin uygulama içinde veya mağaza sayfasında paylaşılan bağlantıda yayınlanır. Önemli değişikliklerde kullanıcıya uygun yöntemlerle bildirim yapılabilir.</p>
+      </section>
+
+      <section class="policy-section">
+        <h3>15. İletişim</h3>
+        <p>Gizlilikle ilgili soru, talep veya şikayetler için bizimle iletişime geçebilirsiniz:</p>
+        <ul>
+          <li>E-posta: <a class="source-link" href="mailto:ufukkt262699@gmail.com">ufukkt262699@gmail.com</a></li>
+          <li>Geliştirici: Ufuk Küçüktopçu</li>
+          <li>Konum: Ankara, Türkiye</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
